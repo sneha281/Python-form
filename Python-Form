@@ -1,0 +1,82 @@
+from tkinter import *
+import tkinter.messagebox as tmsg
+root = Tk()
+root.geometry("644x344")
+#def getvals():
+    #print("it works")
+#Label(root, text="Welcome to apna dhaba Enter your dish",font = "comicsansms 13 bold").grid(row=0,column =3)
+def order():
+    print(f"your order is {var.get()}.ThankYou for order ")
+    print(f"Your name is {uservalue.get()}")
+    print(f"Your phone number is {passvalue.get()}")
+    print(f"your address is {addressvalue.get()},Thank you we hope you will love it")
+def myfunc():
+    print("Aapka swagat hai Apna Dhaba mein")
+def ig():
+    msg = "instagram account = @apnaafood"
+    tmsg.showinfo("id",msg)
+def wn():
+    msg = "whatsapp number= **********"
+    tmsg.showinfo("wp num",msg)
+def email():
+    msg = "our email id is = apnadhaba2001@gmail.com"
+    tmsg.showinfo("email",msg)
+
+
+def rate():
+    value =tmsg.askquestion("You like our food","answer yes or no")
+    print(value)
+    if value=="yes":
+        msg = "It means a lot sir/mam"
+    else:
+        msg = "we are very sorry for this "
+    tmsg.showinfo("experience",msg)
+
+
+var = StringVar()
+var.set(1)
+Label(root, text = "Welcome to online food delivery site ",font = "comicsansms 13 bold", justify  = LEFT,bg = "red").pack()
+radio =Radiobutton(root,text="dosa", variable = var, value = "dosa").pack()
+radio =Radiobutton(root,text="momoz", variable = var, value = "momoz").pack()
+radio =Radiobutton(root,text="chilli potato", variable = var, value = "chilli potato").pack()
+radio =Radiobutton(root,text="chowmin", variable = var, value = "chowmin").pack()
+radio =Radiobutton(root,text="spring roll", variable = var, value = "spring roll").pack()
+Button(text = "order",command = order)
+
+a = Label(root, text ="Enter your name",bg = "yellow").pack()
+uservalue = StringVar()
+userentry = Entry(root,textvariable = uservalue).pack()
+b = Label(root, text = "Enter your Phone number",bg = "yellow", justify = LEFT).pack()
+
+passvalue = StringVar()
+
+passentry = Entry(root, textvariable = passvalue).pack()
+c = Label(root, text ="Enter your address", bg = "yellow", justify = LEFT).pack()
+addressvalue = StringVar()
+userentry = Entry(root,textvariable = addressvalue).pack()
+
+Button ( text = "submit", command = order,bg = "red", justify = LEFT).pack()
+yourmanubar = Menu(root)
+m = Menu(yourmanubar)
+m.add_command(label = "follow us on ig", command = ig)
+m.add_command(label = "scan code", command = myfunc)
+m.add_separator()
+m.add_command(label = "whatsapp number", command = wn)
+m.add_command(label = "our email", command = email)
+yourmanubar.add_cascade(label = "About us",menu= m)
+root.config(menu = yourmanubar)
+root.config(menu = yourmanubar)
+m2  = Menu(yourmanubar)
+yourmanubar.add_cascade(label = "rate",menu= m2)
+
+m2.add_command(label = "rateus", command = rate)
+root.config(menu= yourmanubar)
+
+
+
+
+
+root.mainloop()
+
+
+#SnehaGupta
